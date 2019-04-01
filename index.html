@@ -10,13 +10,13 @@
 
 
 $( document ).ready(function ipLookUp () {
-      $.getJSON("http://ip-api.com/json/?fields=query,country,city", function(obj) {
+      $.getJSON("http://ip-api.com/json/?fields=query,country,city,isp", function(obj) {
         var results = []
         $.each(obj, function(key, value){
           results.push(value)
         });
         $('h2.country').append(" "+ results[0] + " in " + results[1]);
-        $('h2.ip').append(" "+ results[2]);
+        $('h2.ip').append(" "+ results[3] + " by " + results[2]);
       });
     })
 
